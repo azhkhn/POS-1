@@ -1,0 +1,105 @@
+
+// import 'package:gmap_latlng_demo/Constants/messages.dart';
+// import 'package:http/http.dart' as http;
+// import 'package:flutter/material.dart';
+
+// import '../lib/Constants/global.dart';
+
+// class SaveAttendenceTraining extends StatefulWidget {
+//   const SaveAttendenceTraining(
+//       {Key? key,
+//       required this.attendanceType,
+//       required this.remarks,
+//       required this.latitude,
+//       required this.longitude})
+//       : super(key: key);
+
+//   final String attendanceType;
+//   final String remarks;
+//   final double latitude;
+//   final double longitude;
+
+//   @override
+//   State<SaveAttendenceTraining> createState() => _SaveAttendenceTrainingState();
+// }
+
+// class _SaveAttendenceTrainingState extends State<SaveAttendenceTraining> {
+
+//   @override
+//   void initState() {
+//     uploadImage();
+//     super.initState();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: Padding(
+//           padding: const EdgeInsets.symmetric(horizontal: 24.0),
+//           child: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             children: const [
+//               SizedBox(height: 20),
+//               Text(
+//                 'saving Attendence',
+//                 textAlign: TextAlign.center,
+//                 style: TextStyle(
+//                   fontSize: 24,
+//                   fontWeight: FontWeight.bold,
+//                 ),
+//               ),
+//               SizedBox(height: 16),
+//               CircularProgressIndicator(),
+//               SizedBox(height: 32),
+//               Text("Please Wait..."),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   uploadImage() async {
+//     print("  'empId': ${notes![0].loginId} ");
+//     print("  'appId': ${notes![0].appId} ");
+
+//     print("  'branchId': ${notes![0].branchId} ");
+
+//     print("  'latitude': ${widget.latitude.toString()} ");
+//     print("  'longitude': ${widget.longitude.toString()} ");
+//     print("  'remarks': ${widget.remarks} ");
+//     print("  'attendanceType': ${widget.attendanceType} ");
+//     print("  'tlId': ${notes![0].loginId} ");
+
+//     var response = await http.post(
+//       Uri.parse(
+//           'https://web.multiplier.co.in/ALFFTS/alfftssr_saveAttendance.action'),
+//       body: {
+//         'empId': notes![0].loginId,
+//         'appId': notes![0].appId,
+//         'branchId': notes![0].branchId,
+//         'fnImg': '1.txt',
+//         'latitude': widget.latitude.toString(),
+//         'longitude': widget.longitude.toString(),
+//         'remarks': widget.remarks,
+//         'attendanceType': widget.attendanceType,
+//         'dealerId': notes![0].dealerId,
+//         'tlId': notes![0].tlId,
+//       },
+//     );
+
+//     if (response.statusCode == 200) {
+//       // var responseString = await response.stream.bytesToString();
+//       print(response.body);
+//       if (mounted) {
+//         Navigator.of(context).pop();
+//       }
+//     } else {
+//       if (mounted) {
+//         ScaffoldMessenger.of(context).showSnackBar(snackBar_UplaodError);
+//         Navigator.pop(context);
+//       }
+//     }
+//   }
+// }

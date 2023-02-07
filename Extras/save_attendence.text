@@ -1,0 +1,116 @@
+
+// import 'dart:io';
+
+// import 'package:gmap_latlng_demo/Constants/messages.dart';
+// import 'package:http/http.dart' as http;
+// import 'package:flutter/material.dart';
+
+// import '../../Constants/global.dart';
+
+
+// class UploadPage extends StatefulWidget {
+//   const UploadPage(
+//       {Key? key,
+//       required this.attendanceType,
+//       required this.remarks,
+//       required this.latitude,
+//       required this.longitude})
+//       : super(key: key);
+
+//   final String attendanceType;
+//   final String remarks;
+//   final double latitude;
+//   final double longitude;
+
+//   @override
+//   State<UploadPage> createState() => _UploadPageState();
+// }
+
+// class _UploadPageState extends State<UploadPage> {
+//   @override
+//   void initState() {
+//     super.initState();
+//     _uploaded();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: Padding(
+//           padding: const EdgeInsets.symmetric(horizontal: 24.0),
+//           child: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             children: const [
+//               SizedBox(height: 20),
+//               Text(
+//                 'photo being uploaded',
+//                 textAlign: TextAlign.center,
+//                 style: TextStyle(
+//                   fontSize: 24,
+//                   fontWeight: FontWeight.bold,
+//                 ),
+//               ),
+//               SizedBox(height: 16),
+//               CircularProgressIndicator(),
+//               SizedBox(height: 32),
+//               Text("Uploading..."),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   _uploaded() {
+//     uploadImage('img', File(imagefileIn!.path));
+//   }
+
+//   uploadImage(String? s, File? file) async {
+//     http.MultipartFile pic;
+//     var request = http.MultipartRequest(
+//         'POST',
+//         Uri.parse(
+//             'https://web.multiplier.co.in/ALFFTS/alfftssr_saveAttendance.action'));
+
+//     request.fields['empId'] = notes![0].loginId;
+//     request.fields['appId'] = notes![0].appId;
+//     request.fields['branchId'] = notes![0].branchId;
+//     request.fields['fnImg'] = '1.txt';
+//     request.fields['latitude'] =widget.latitude.toString();
+//     request.fields['longitude'] =widget.longitude.toString();
+//     request.fields['remarks'] = widget.remarks;
+//     request.fields['attendanceType'] = widget.attendanceType;
+//     request.fields['dealerId'] = notes![0].dealerId;
+//     request.fields['tlId'] = notes![0].tlId;
+
+//     //create multipart using filepath, string or bytes
+//     file != null && s != null
+//         ? {
+//             pic = await http.MultipartFile.fromPath(s, file.path),
+//             //add multipart to request
+//             request.files.add(pic)
+//           }
+//         : null;
+
+//     var response = await request.send();
+
+//     if (response.statusCode == 200) {
+//       setState(() {
+//         imagefileIn = null;
+//         imagefileOut = null;
+//         geeks.setcapture = false;
+//       });
+//       // var responseString = await response.stream.bytesToString();
+//       // print(responseString);
+//       if (mounted) {
+//         Navigator.of(context).pop();
+//       }
+//     } else {
+//       if (mounted) {
+//         ScaffoldMessenger.of(context).showSnackBar(snackBar_UplaodError);
+//         Navigator.pop(context);
+//       }
+//     }
+//   }
+// }

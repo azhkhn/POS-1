@@ -1,0 +1,115 @@
+// import 'dart:io';
+
+// import 'package:gmap_latlng_demo/Constants/messages.dart';
+// import 'package:http/http.dart' as http;
+// import 'package:flutter/material.dart';
+
+// import '../../Constants/global.dart';
+
+// class Onduty extends StatefulWidget {
+//   const Onduty(
+//       {Key? key,
+//       required this.agenda,
+//       required this.sendername,
+//       required this.remarks,
+//       required this.sendercontact,
+//       required this.personcontact, 
+//       required this.latitude, 
+//       required this.longitude, 
+//       required this.address})
+//       : super(key: key);
+
+//   final String agenda;
+//   final String remarks;
+//   final String sendername;
+//   final String sendercontact;
+//   final String personcontact;
+//   final double latitude;
+//   final double longitude;
+//   final String address;
+
+//   @override
+//   State<Onduty> createState() => _OndutyState();
+// }
+
+// class _OndutyState extends State<Onduty> {
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     _uploaded();
+//   }
+
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       body: Center(
+//         child: Padding(
+//           padding: const EdgeInsets.symmetric(horizontal: 24.0),
+//           child: Column(
+//             mainAxisSize: MainAxisSize.min,
+//             children: const [
+//               SizedBox(height: 20),
+//               Text(
+//                 'Saving deatiled attendence',
+//                 textAlign: TextAlign.center,
+//                 style: TextStyle(
+//                   fontSize: 24,
+//                   fontWeight: FontWeight.bold,
+//                 ),
+//               ),
+//               SizedBox(height: 16),
+//               CircularProgressIndicator(),
+//               SizedBox(height: 32),
+//               Text("Uploading..."),
+//             ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+
+//   _uploaded() {
+//     imagefileIn == null
+//         ? uploadImage(null, null)
+//         : uploadImage('img', File(imagefileIn!.path));
+//   }
+
+//   uploadImage(String? s, File? file) async {
+//     var response = await http.post(
+//       Uri.parse('https://web.multiplier.co.in/ALFFTS/alfftssr_saveOnDuty.action'),
+//       body: {
+//         'empId'         :  notes![0].loginId,             
+//         'location'      :  widget.address,              
+//         'appId'         :  notes![0].appId,                
+//         'branchId'      :  notes![0].branchId,          
+//         'agenda'        :  widget.agenda,                 
+//         'contactno'     :  widget.personcontact,       
+//         'isSubmitted'   :  'Y',                      
+//         'latitude'      :  widget.latitude.toString(),  
+//         'longitude'     :  widget.longitude.toString(),
+//         'remarks'       :  widget.remarks,               
+//         'transportType' : 'test',                 
+//         'visitType'     : 'car',                      
+//         'senderMobile'  : widget.sendercontact,    
+//         'senderName'    : widget.sendername,        
+//       },
+//     );
+
+//     if (response.statusCode == 200) {
+//       // ignore: avoid_print
+//       print(response.body);
+//       if(mounted) {
+//         Navigator.of(context).pop();
+//       }
+//     } else {
+//       //  Navigator.of(context).pushReplacement(
+//       //   MaterialPageRoute(builder: (context) => const SelectImage(isadd: true) ));
+//       if(mounted){
+//         ScaffoldMessenger.of(context).showSnackBar(snackBar_UplaodError);
+//         Navigator.pop(context);
+//       }
+//     }
+//   }
+// }

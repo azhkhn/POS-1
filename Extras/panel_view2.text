@@ -1,0 +1,179 @@
+
+// import 'package:flutter/material.dart';
+// import 'package:gmap_latlng_demo/Pages/Panel/Widgets/IconsState/on_duty.dart';
+
+// import '../lib/Constants/global.dart';
+// import '../lib/Services/Api/attendence_status.dart';
+// import '../lib/Pages/Panel/Widgets/IconsState/attendence.dart';
+// import '../lib/Pages/Panel/Widgets/IconsState/holiday.dart';
+// import '../lib/Pages/Panel/Widgets/IconsState/leave.dart';
+// import '../lib/Pages/Panel/Widgets/IconsState/market_close.dart';
+// import '../lib/Pages/Panel/Widgets/IconsState/training.dart';
+// import '../lib/Pages/Panel/Widgets/IconsState/week_off.dart';
+// import '../lib/Pages/Panel/Widgets/remark_box.dart';
+// import '../lib/Pages/Panel/Widgets/select_image.dart';
+
+
+// class PanelWidget extends StatefulWidget {
+//   const PanelWidget({Key? key}) : super(key: key);
+
+//   @override
+//   State<PanelWidget> createState() => _PanelWidgetState();
+// }
+
+// class _PanelWidgetState extends State<PanelWidget> {
+
+//   late DraggableScrollableController _sheetcontroller;
+
+//   @override
+//   void initState() {
+//     super.initState();
+//     getAttendencetoday();
+//     _sheetcontroller = DraggableScrollableController();
+//   }
+
+//   @override
+//   void dispose() {
+//     _sheetcontroller;
+//     super.dispose();
+//   }
+
+  
+//   @override
+//   Widget build(BuildContext context) {
+//     return DraggableScrollableSheet(
+//           controller: _sheetcontroller,
+//           initialChildSize: .1,
+//           minChildSize: .1,
+//           maxChildSize: 1,
+//           snapSizes: const [
+//             .6,
+//           ],
+//           expand: false,
+//           builder: (BuildContext context, ScrollController scrollController) =>
+//               SingleChildScrollView(
+//                 controller: scrollController,
+//                 child: Column(
+//                   children: <Widget>[
+//                     const SizedBox(
+//                       height: 12.0,
+//                     ),
+//                     Row(
+//                       mainAxisAlignment: MainAxisAlignment.start,
+//                       children: <Widget>[
+//                         GestureDetector(
+//                           onTap: () => tooglepanel(),
+//                           child: Row(
+//                             children: const [
+//                               SizedBox(
+//                                 width: 10,
+//                               ),
+//                               Icon(Icons.menu),
+//                               SizedBox(
+//                                 width: 16,
+//                               ),
+//                               Text(
+//                                 "Tab to Attendence",
+//                                 style: TextStyle(
+//                                   fontWeight: FontWeight.bold,
+//                                   fontSize: 19.0,
+//                                 ),
+//                               ),
+//                             ],
+//                           ),
+//                         ),
+//                       ],
+//                     ),
+//                     SizedBox(
+//                       height: MediaQuery.of(context).size.height * .08,
+//                     ),
+//                     Card(
+//                       child: Column(
+//                         children: [
+//                           Row(
+//                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                             children: [
+//                               const ImageCapture(),
+//                               // CustomIconAttendence(
+//                               //   "assets/profile.png",
+//                               //   "Attendence",
+//                               // ),
+//                               CustomIconLeave(
+//                                 "assets/profile.png",
+//                                 "Leave",
+//                                 context
+//                               ),
+//                               CustomIconMarketClose(
+//                                 "assets/profile.png",
+//                                 "Market Close",
+//                                 context
+//                               )
+//                             ],
+//                           ),
+//                           const SizedBox(
+//                             height: 16,
+//                           ),
+//                           Row(
+//                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                             children: <Widget>[
+//                               CustomIconTraining(
+//                                 "assets/profile.png",
+//                                 "Training",
+//                                 context
+//                               ),
+//                               CustomIconWeekOff(
+//                                 "assets/profile.png",
+//                                 "Week Off",
+//                                 context
+//                               ),
+//                               CustomIconHoliday(
+//                                 "assets/profile.png",
+//                                 "Holiday",
+//                                 context
+//                               ),
+//                             ],
+//                           ),
+//                           const SizedBox(
+//                             height: 16,
+//                           ),
+//                           Row(
+//                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+//                             children: <Widget>[
+//                               CustomIconOnDuty(
+//                               "assets/profile.png",
+//                                 "On Duty",
+//                                 context
+//                               )
+//                             ],
+//                           ),
+//                         ],
+//                       ),
+//                     ),
+//                     const SizedBox(
+//                       height: 10.0,
+//                     ),
+//                     Visibility(
+//                       visible: geeks.getcapture,
+//                       child: const SelectImage(),
+//                     ),
+//                     Visibility(
+//                       visible: geeks.getremark,
+//                       child: const RemarkBox(),
+//                     )
+//                   ],
+//                 ),
+//               ));
+    
+//   }
+
+//    void tooglepanel() {
+//     if (_sheetcontroller.size == .6) {
+//       _sheetcontroller.jumpTo(.1);
+//     } else if (_sheetcontroller.size < .6) {
+//       _sheetcontroller.jumpTo(.6);
+//     } else if (_sheetcontroller.size > .6) {
+//       _sheetcontroller.jumpTo(.1);
+//     }
+//   }
+  
+// }
