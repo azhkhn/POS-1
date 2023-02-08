@@ -1,11 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'dart:async';
-
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
-
 import '../../Transitions/privacy_set_status_state.dart';
 import '../../Widgets/custom_text.dart';
 

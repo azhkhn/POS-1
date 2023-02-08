@@ -85,45 +85,52 @@ class SetupFlowState extends State<SetupFlow> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              DrawerHeader(
-                decoration: const BoxDecoration(
-                  color: Colors.purple,
-                ),
-                child: UserAccountsDrawerHeader(
-                    decoration: const BoxDecoration(color: Colors.purple),
-                    accountName: Center(
-                      child: Column(
-                        children: [
-                          SizedBox(
-                              child: Image.asset('assets/multiplier.png',height: 21.0,)),
-                          const SizedBox(height: 15.0),
-                          SizedBox(
-                              child: Text('USER ID: ${loginglobaldata.first.loginId}')),
-                        ],
+              Card(
+                color: Colors.purple,
+                margin: const EdgeInsets.all(0),
+                elevation: 6.0,
+                child: DrawerHeader(
+                  decoration: const BoxDecoration(
+                    color: Colors.purple,
+                  ),
+                  child: UserAccountsDrawerHeader(
+                      decoration: const BoxDecoration(color: Colors.purple),
+                      accountName: Center(
+                        child: Column(
+                          children: [
+                            SizedBox(
+                                child: Image.asset('assets/multiplier.png',height: 21.0,)),
+                            const SizedBox(height: 15.0),
+                            SizedBox(
+                                child: Text('USER ID: ${loginglobaldata.first.loginId}')),
+                          ],
+                        ),
                       ),
-                    ),
-                    accountEmail: Center(
-                      child: Container(
-                          padding: const EdgeInsets.only(left: 1.0),
-                          child: Text('Designation: ${dashboardglobaldata
-                              .first.designation}')),
-                    )),
+                      accountEmail: Center(
+                        child: Container(
+                            padding: const EdgeInsets.only(left: 1.0),
+                            child: Text('Designation: ${dashboardglobaldata
+                                .first.designation}')),
+                      )),
+                ),
               ),
               const SizedBox(
-                height: 10.0,
+                height: 5.0,
               ),
               Container(
-                color: Colors.grey,
                 margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
                     const Expanded(
                         child: Card(
+                          elevation: 6.0,
                       child: ButtonAttendence(),
-                    )),
+                    ),
+                    ),
+                    const SizedBox(width: 5.0),
                     Expanded(
                         child: Card(
+                          elevation: 6.0,
                       child: TextButton(
                             onPressed: (){
                               setState(() {
@@ -136,20 +143,19 @@ class SetupFlowState extends State<SetupFlow> {
                                 image: AssetImage('assets/multiplier.png')),
                           )),
                     ),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(
-                height: 10.0,
-              ),
               Container(
-                color: Colors.grey,
                 margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-                padding: const EdgeInsets.all(10.0),
                 child: Row(
                   children: [
                     Expanded(
                         child: Card(
+                          elevation: 6.0,
                       child: TextButton(
                             onPressed: () {
                               setState(() {
@@ -162,8 +168,10 @@ class SetupFlowState extends State<SetupFlow> {
                                 image: AssetImage('assets/multiplier.png'))),
                       ),
                     ),
+                    const SizedBox(width: 5.0),
                     const Expanded(
                         child: Card(
+                          elevation: 6.0,
                       child: ButtonLogout()
                     ))
                   ],
@@ -177,6 +185,9 @@ class SetupFlowState extends State<SetupFlow> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   ElevatedButton(
+                    style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll<Color>(Colors.purple)
+                    ),
                     onPressed: () {},
                       child: FutureBuilder<PackageInfo>(
                         future: PackageInfo.fromPlatform(),
