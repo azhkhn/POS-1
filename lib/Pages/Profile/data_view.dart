@@ -248,7 +248,7 @@ class DataView extends StatelessWidget {
                           ),
                         ),
                     ),
-                    const SizedBox(width: 15.0),
+                    const SizedBox(width: 10.0),
                     Expanded(
                         child: Card(
                           margin: const EdgeInsets.all(0),
