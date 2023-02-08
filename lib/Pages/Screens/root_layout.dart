@@ -197,7 +197,7 @@ class SetupFlowState extends State<SetupFlow> {
                               return Align(
                                 alignment: Alignment.bottomCenter,
                                 child: Text(
-                                  'Version: ${snapshot.data!.version}',),
+                                  'Version: ${snapshot.data!.version.replaceRange(3, 5, '')}',),
                               );
                             default:
                               return const SizedBox();

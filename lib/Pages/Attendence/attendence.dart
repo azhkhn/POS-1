@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:package_info/package_info.dart';
 import '../../Constants/global.dart';
 import '../../Constants/style.dart';
 import '../../Routing/named_routes.dart';
@@ -57,120 +58,137 @@ class _AttendencePageState extends State<AttendencePage> {
 
   buildMyNavBar() {
     return Drawer(
-      width: 200,
       child: Container(
         height: double.infinity,
         decoration: BoxDecoration(
           color: light,
         ),
-        child: Card(
-          margin: EdgeInsets.zero,
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              DrawerHeader(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Card(
+              color: Colors.purple,
+              margin: const EdgeInsets.all(0),
+              elevation: 6.0,
+              child: DrawerHeader(
                 decoration: const BoxDecoration(
                   color: Colors.purple,
                 ),
                 child: UserAccountsDrawerHeader(
                     decoration: const BoxDecoration(color: Colors.purple),
-                    currentAccountPicture: Container(
-                        padding: const EdgeInsets.only(left: 15.0),
-                        child: CircleAvatar(
-                            child: Image.asset('assets/multiplier.png'))),
-                    accountName: Container(
-                        padding: const EdgeInsets.only(left: 1.0),
-                        child: const Text('USER ID: 10001')),
-                    accountEmail: Container(
-                        padding: const EdgeInsets.only(left: 1.0),
-                        child: const Text('Designation: ISD'))),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                color: Colors.grey,
-                margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                        child: Card(
-                      child: TextButton(
-                          onPressed: () {}, child: const ButtonAttendence()),
-                    )),
-                    Expanded(
-                        child: Card(
-                      child: TextButton(
-                          onPressed: () {},
-                          child: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                settitlevalue = reportPageDisplayName;
-                              });
-                              navigatorKey.currentState!
-                                  .pushNamedAndRemoveUntil(
-                                      reportPageRoute, (route) => false);
-                            },
-                            icon: const Image(
-                                image: AssetImage('assets/multiplier.png')),
-                          )),
-                    ))
-                  ],
-                ),
-              ),
-              const SizedBox(
-                height: 10.0,
-              ),
-              Container(
-                color: Colors.grey,
-                margin: const EdgeInsets.only(left: 10.0, right: 10.0),
-                padding: const EdgeInsets.all(10.0),
-                child: Row(
-                  children: [
-                    Expanded(
-                        child: Card(
-                      child: TextButton(
-                        onPressed: () {},
-                        child: IconButton(
-                            onPressed: () {
-                              setState(() {
-                                settitlevalue = profilePageDisplayName;
-                              });
-                              navigatorKey.currentState!
-                                  .pushNamedAndRemoveUntil(
-                                      servicesPageRoute, (route) => false);
-                            },
-                            icon: const Image(
-                                image: AssetImage('assets/multiplier.png'))),
-                      ),
-                    )),
-                    Expanded(
-                      child: Card(
-                        child: TextButton(
-                            onPressed: () {}, child: const ButtonLogout()),
+                    accountName: Center(
+                      child: Column(
+                        children: [
+                          SizedBox(
+                              child: Image.asset('assets/multiplier.png',height: 21.0,)),
+                          const SizedBox(height: 15.0),
+                          SizedBox(
+                              child: Text('USER ID: ${loginglobaldata.first.loginId}')),
+                        ],
                       ),
                     ),
-                  ],
-                ),
+                    accountEmail: Center(
+                      child: Container(
+                          padding: const EdgeInsets.only(left: 1.0),
+                          child: Text('Designation: ${dashboardglobaldata
+                              .first.designation}')),
+                    )),
               ),
-              const SizedBox(
-                height: 300.0,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
+            ),
+            const SizedBox(
+              height: 5.0,
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Row(
                 children: [
-                  ElevatedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      'Version 1.0',
+                  const Expanded(
+                    child: Card(
+                      elevation: 6.0,
+                      child: ButtonAttendence(),
                     ),
+                  ),
+                  const SizedBox(width: 5.0),
+                  Expanded(
+                    child: Card(
+                        elevation: 6.0,
+                        child: TextButton(
+                          onPressed: (){
+                            setState(() {
+                              settitlevalue = reportPageDisplayName;
+                            });
+                            navigatorKey.currentState!.pushNamedAndRemoveUntil(
+                                reportPageRoute, (route) => false);
+                          },
+                          child: const Image(
+                              image: AssetImage('assets/multiplier.png')),
+                        )),
+                  ),
+                  const SizedBox(
+                    height: 5.0,
                   ),
                 ],
               ),
-            ],
-          ),
+            ),
+            Container(
+              margin: const EdgeInsets.only(left: 10.0, right: 10.0),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Card(
+                      elevation: 6.0,
+                      child: TextButton(
+                          onPressed: () {
+                            setState(() {
+                              settitlevalue = profilePageDisplayName;
+                            });
+                            navigatorKey.currentState!.pushNamedAndRemoveUntil(
+                                servicesPageRoute, (route) => false);
+                          },
+                          child: const Image(
+                              image: AssetImage('assets/multiplier.png'))),
+                    ),
+                  ),
+                  const SizedBox(width: 5.0),
+                  const Expanded(
+                      child: Card(
+                          elevation: 6.0,
+                          child: ButtonLogout()
+                      ))
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 160.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                ElevatedButton(
+                  style: const ButtonStyle(
+                      backgroundColor: MaterialStatePropertyAll<Color>(Colors.purple)
+                  ),
+                  onPressed: () {},
+                  child: FutureBuilder<PackageInfo>(
+                    future: PackageInfo.fromPlatform(),
+                    builder: (context, snapshot) {
+                      switch (snapshot.connectionState) {
+                        case ConnectionState.done:
+                          return Align(
+                            alignment: Alignment.bottomCenter,
+                            child: Text(
+                              'Version: ${snapshot.data!.version}',),
+                          );
+                        default:
+                          return const SizedBox();
+                      }
+                    },
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
       ),
     );

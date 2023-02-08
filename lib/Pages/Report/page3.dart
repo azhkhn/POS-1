@@ -51,7 +51,7 @@ class _Page3State extends State<Page3> {
           },
           javascriptMode: JavascriptMode.unrestricted,
           initialUrl:
-              'https://web.multiplier.co.in/ALFFTS/alfftsapp_menuData.action?userid=${loginglobaldata.first.loginId}',
+              'https://web.multiplier.co.in/ALFFTS/alfftsapp_menuData.action?userid=1001122',
           onPageStarted: (url) {
             setState(() {
               loadingPercentage = 0;

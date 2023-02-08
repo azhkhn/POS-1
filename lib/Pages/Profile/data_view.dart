@@ -162,35 +162,6 @@ class DataView extends StatelessWidget {
             const SizedBox(
               height: 8,
             ),
-            /*SizedBox(
-              width: double.infinity,
-              child: Card(
-                margin: const EdgeInsets.all(0),
-                color: Colors.white,
-                elevation: 6,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: RichText(
-                    text: TextSpan(
-                        style: const TextStyle(
-                          color: Colors.black,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                        children: <TextSpan>[
-                          const TextSpan(text: "Notice Board"),
-                          const TextSpan(text: "        "),
-                          TextSpan(
-                              text: dashboardglobaldata.first.noticeBoard,
-                              style: const TextStyle(fontSize: 15))
-                        ]),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 8,
-            ),*/
             SizedBox(
               width: double.infinity,
               child: Card(
@@ -202,10 +173,8 @@ class DataView extends StatelessWidget {
                     Container(
                       height: 80.0,
                       width: double.infinity,
-                      // color: Colors.grey,
                       padding: const EdgeInsets.all(6.0),
-                      child: /*Card(
-                        child:*/ Padding(
+                      child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: RichText(
                             text: const TextSpan(
