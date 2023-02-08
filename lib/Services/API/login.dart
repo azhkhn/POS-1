@@ -5,7 +5,6 @@ import 'package:http/http.dart' as http;
 import '../../helpers/user_state.dart';
 import '../../model/APISchemas/login_schema.dart';
 
-
 Future<LoginData> authenticateUser() async {
   var tempnote;
   var response = await http.post(
