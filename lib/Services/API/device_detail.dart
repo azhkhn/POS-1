@@ -5,19 +5,16 @@ import 'package:http/http.dart' as http;
 import '../../Constants/global.dart';
 import '../../model/APISchemas/device_detail.dart';
 import 'package:platform_device_id/platform_device_id.dart';
-import 'package:app_version/app_version.dart';
 import 'package:device_information/device_information.dart';
-import 'package:package_info/package_info.dart';
 
 
 Future<DeviceData> deviceDetail(String data) async {
-  PackageInfo packageInfo = await PackageInfo.fromPlatform();
   var response = await http.post(
     Uri.parse('https://web.multiplier.co.in/dffts/dfftssr_saveDevicesInfo.action'/*'https://web.multiplier.co.in/ALFFTS/alfftssr_listDashboard.action'*/),
     body: {
       'empId': loginglobaldata.first.loginId,
       'deviceId': await PlatformDeviceId.getDeviceId,
-      'appVersion': packageInfo.version,
+      'appVersion': await DeviceInformation.platformVersion,
       'imei1': await DeviceInformation.deviceIMEINumber,
     },
   );
