@@ -1,5 +1,7 @@
+// ignore_for_file: unnecessary_brace_in_string_interps, avoid_print
+
 import 'package:flutter/material.dart';
-import 'package:app_version/app_version.dart';
+import 'package:package_info/package_info.dart';
 import '../../Constants/global.dart';
 import '../../Constants/style.dart';
 import '../../Widgets/BottomBar/Components/button_attendence.dart';
@@ -39,6 +41,21 @@ class SetupFlowState extends State<SetupFlow> {
   void didChangeDependencies() {
     gettitlevalue;
     super.didChangeDependencies();
+  }
+
+  PackageInfo? packageInfo;
+  @override
+  void initState() {
+    super.initState();
+    getPackage();
+  }
+  void getPackage() async {
+    packageInfo = await PackageInfo.fromPlatform();
+    String appName = packageInfo!.appName;
+    String packageName = packageInfo!.packageName;
+    String version = packageInfo!.version;
+    String buildNumber = packageInfo!.buildNumber;
+    print("App Name : ${appName}, App Package Name: ${packageName },App Version: ${version}, App build Number: ${buildNumber}");
   }
 
   @override
@@ -161,10 +178,22 @@ class SetupFlowState extends State<SetupFlow> {
                 children: [
                   ElevatedButton(
                     onPressed: () {},
-                    child: const Center(
-                      child: AppVersion(),
+                      child: FutureBuilder<PackageInfo>(
+                        future: PackageInfo.fromPlatform(),
+                        builder: (context, snapshot) {
+                          switch (snapshot.connectionState) {
+                            case ConnectionState.done:
+                              return Align(
+                                alignment: Alignment.bottomCenter,
+                                child: Text(
+                                  'Version: ${snapshot.data!.version}',),
+                              );
+                            default:
+                              return const SizedBox();
+                          }
+                        },
+                      ),
                     ),
-                  ),
                 ],
               ),
             ],
