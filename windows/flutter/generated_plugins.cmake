@@ -3,7 +3,7 @@
 #
 
 list(APPEND FLUTTER_PLUGIN_LIST
-  connectivity_plus_windows
+  connectivity_plus
   platform_device_id_windows
   url_launcher_windows
 )
