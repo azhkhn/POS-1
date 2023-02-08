@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:app_version/app_version.dart';
 import '../../Constants/global.dart';
 import '../../Constants/style.dart';
 import '../../Widgets/BottomBar/Components/button_attendence.dart';
@@ -160,7 +161,9 @@ class SetupFlowState extends State<SetupFlow> {
                 children: [
                   ElevatedButton(
                     onPressed: () {},
-                    child: const Text('Version 1.0'),
+                    child: const Center(
+                      child: AppVersion(),
+                    ),
                   ),
                 ],
               ),
