@@ -20,6 +20,9 @@ const reportPageRoute = "/report/";
 
 const servicesPageRoute = "/services/";
 
+const storeVisitPageDisplayName = "Store Visit";
+const storeVisitPageRoute = "/visit/";
+
 const authenticationPageRoute = "/auth/";
 
 const routeSettings = '/settings';

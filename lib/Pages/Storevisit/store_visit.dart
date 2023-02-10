@@ -1,33 +1,23 @@
-// ignore_for_file: avoid_print
-
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
+import 'package:pos/Pages/Storevisit/options.dart';
 import '../../Constants/global.dart';
 import '../../Constants/style.dart';
+import '../../Routing/named_routes.dart';
 import '../../Widgets/BottomBar/Components/button_attendence.dart';
 import '../../Widgets/BottomBar/Components/button_logout.dart';
-import '../../Routing/named_routes.dart';
-import '../../Routing/router.dart';
 import '../../Widgets/BottomBar/Components/store_visit.dart';
+import '../../Widgets/custom_waiting_screen.dart';
+import '../../helpers/location_setter.dart';
 
-@immutable
-class SetupFlow extends StatefulWidget {
-  static SetupFlowState of(BuildContext context) {
-    return context.findAncestorStateOfType<SetupFlowState>()!;
-  }
-
-  const SetupFlow({
-    super.key,
-    required this.setupPageRoute,
-  });
-
-  final String setupPageRoute;
+class StoreVisitData extends StatefulWidget {
+  const StoreVisitData({Key? key}) : super(key: key);
 
   @override
-  SetupFlowState createState() => SetupFlowState();
+  State<StoreVisitData> createState() => _StoreVisitDataState();
 }
 
-class SetupFlowState extends State<SetupFlow> {
+class _StoreVisitDataState extends State<StoreVisitData> {
   final navigatorKey = GlobalKey<NavigatorState>();
 
   String _titlevalue = profilePageDisplayName;
@@ -39,43 +29,29 @@ class SetupFlowState extends State<SetupFlow> {
   }
 
   @override
-  void didChangeDependencies() {
-    gettitlevalue;
-    super.didChangeDependencies();
-  }
-
-  PackageInfo? packageInfo;
-  @override
-  void initState() {
-    super.initState();
-    getPackage();
-  }
-
-  void getPackage() async {
-    packageInfo = await PackageInfo.fromPlatform();
-    String appName = packageInfo!.appName;
-    String packageName = packageInfo!.packageName;
-    String version = packageInfo!.version;
-    String buildNumber = packageInfo!.buildNumber;
-    print(
-        "App Name : $appName, App Package Name: $packageName,App Version: $version, App build Number: $buildNumber");
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.purple,
-        centerTitle: true,
-        title: Text(gettitlevalue),
-      ),
-      body: Navigator(
-        key: navigatorKey,
-        initialRoute: widget.setupPageRoute,
-        onGenerateRoute: onGenerateRoute,
-      ),
-      drawer: buildMyNavBar(),
-    );
+      backgroundColor: Colors.white70,
+        appBar: AppBar(
+          backgroundColor: Colors.purple,
+          centerTitle: true,
+          actions: [
+            GestureDetector(
+              onTap: () {
+                FocusScope.of(context).unfocus();
+                listeners.panelitem.setcapture =
+                    listeners.panelitem.setremark = false;
+                Navigator.pop(context);
+              },
+              child: const Icon(Icons.arrow_circle_left_outlined),
+            ),
+          ],
+          title: const Text("Manage Beat Plan"),
+        ),
+        drawer: buildMyNavBar(),
+        body: StateInherited.of(context).locationData != null
+            ? const Center(child: Options())
+            : customcontainer());
   }
 
   buildMyNavBar() {
@@ -104,9 +80,9 @@ class SetupFlowState extends State<SetupFlow> {
                           children: [
                             SizedBox(
                                 child: Image.asset(
-                              'assets/multiplier.png',
-                              height: 21.0,
-                            )),
+                                  'assets/multiplier.png',
+                                  height: 21.0,
+                                )),
                             const SizedBox(height: 15.0),
                             SizedBox(
                                 child: Text(
@@ -146,7 +122,7 @@ class SetupFlowState extends State<SetupFlow> {
                               });
                               navigatorKey.currentState!
                                   .pushNamedAndRemoveUntil(
-                                      reportPageRoute, (route) => false);
+                                  reportPageRoute, (route) => false);
                               Navigator.of(context).pop();
                             },
                             child: const Image(
@@ -173,7 +149,7 @@ class SetupFlowState extends State<SetupFlow> {
                               });
                               navigatorKey.currentState!
                                   .pushNamedAndRemoveUntil(
-                                      servicesPageRoute, (route) => false);
+                                  servicesPageRoute, (route) => false);
                               Navigator.of(context).pop();
                             },
                             child: const Image(
@@ -223,7 +199,7 @@ class SetupFlowState extends State<SetupFlow> {
                   ElevatedButton(
                     style: const ButtonStyle(
                         backgroundColor:
-                            MaterialStatePropertyAll<Color>(Colors.purple)),
+                        MaterialStatePropertyAll<Color>(Colors.purple)),
                     onPressed: () {},
                     child: FutureBuilder<PackageInfo>(
                       future: PackageInfo.fromPlatform(),

@@ -64,6 +64,7 @@ class _MapViewState extends State<MapView> {
               child: GoogleMap(
                 mapType: MapType.normal,
                 initialCameraPosition: CameraPosition(
+
                     target: LatLng(
                         StateInherited.of(context).locationData!.latitude!,
                         StateInherited.of(context).locationData!.longitude!),

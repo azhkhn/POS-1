@@ -4,8 +4,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
-import '../../Constants/global.dart';
-
 class Page3 extends StatefulWidget {
   const Page3({Key? key,}) : super(key: key);
 

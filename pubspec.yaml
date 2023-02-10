@@ -29,7 +29,6 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   image_picker: ^0.8.5+3
   flutter_native_contact_picker: ^0.0.3
   google_maps_flutter: ^2.1.8

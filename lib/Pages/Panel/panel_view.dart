@@ -41,7 +41,7 @@ class _PanelWidgetState extends State<PanelWidget> {
         controller: sheetcontroller,
         initialChildSize: .1,
         minChildSize: .1,
-        maxChildSize: 1,
+        maxChildSize: 1.0,
         snapSizes: const [.6, 1],
         expand: false,
         builder: (context, ScrollController scrollController) =>

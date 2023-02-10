@@ -2,32 +2,23 @@
 
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
+
 import '../../Constants/global.dart';
 import '../../Constants/style.dart';
+import '../../Routing/named_routes.dart';
 import '../../Widgets/BottomBar/Components/button_attendence.dart';
 import '../../Widgets/BottomBar/Components/button_logout.dart';
-import '../../Routing/named_routes.dart';
-import '../../Routing/router.dart';
 import '../../Widgets/BottomBar/Components/store_visit.dart';
+import '../../Widgets/recycler_view.dart';
 
-@immutable
-class SetupFlow extends StatefulWidget {
-  static SetupFlowState of(BuildContext context) {
-    return context.findAncestorStateOfType<SetupFlowState>()!;
-  }
-
-  const SetupFlow({
-    super.key,
-    required this.setupPageRoute,
-  });
-
-  final String setupPageRoute;
+class BeatPlan extends StatefulWidget {
+  const BeatPlan({Key? key}) : super(key: key);
 
   @override
-  SetupFlowState createState() => SetupFlowState();
+  State<BeatPlan> createState() => _BeatPlanState();
 }
 
-class SetupFlowState extends State<SetupFlow> {
+class _BeatPlanState extends State<BeatPlan> {
   final navigatorKey = GlobalKey<NavigatorState>();
 
   String _titlevalue = profilePageDisplayName;
@@ -66,15 +57,21 @@ class SetupFlowState extends State<SetupFlow> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.purple,
-        centerTitle: true,
-        title: Text(gettitlevalue),
-      ),
-      body: Navigator(
-        key: navigatorKey,
-        initialRoute: widget.setupPageRoute,
-        onGenerateRoute: onGenerateRoute,
+        title: const Text('View Beat Plan With Date'),
+        actions: [
+          GestureDetector(
+            onTap: () {
+              FocusScope.of(context).unfocus();
+              listeners.panelitem.setcapture =
+                  listeners.panelitem.setremark = false;
+              Navigator.pop(context);
+            },
+            child: const Icon(Icons.arrow_circle_left_outlined),
+          ),
+        ],
       ),
       drawer: buildMyNavBar(),
+      body: const Center(child: RecyclerViewData()),
     );
   }
 
@@ -104,9 +101,9 @@ class SetupFlowState extends State<SetupFlow> {
                           children: [
                             SizedBox(
                                 child: Image.asset(
-                              'assets/multiplier.png',
-                              height: 21.0,
-                            )),
+                                  'assets/multiplier.png',
+                                  height: 21.0,
+                                )),
                             const SizedBox(height: 15.0),
                             SizedBox(
                                 child: Text(
@@ -146,7 +143,7 @@ class SetupFlowState extends State<SetupFlow> {
                               });
                               navigatorKey.currentState!
                                   .pushNamedAndRemoveUntil(
-                                      reportPageRoute, (route) => false);
+                                  reportPageRoute, (route) => false);
                               Navigator.of(context).pop();
                             },
                             child: const Image(
@@ -173,7 +170,7 @@ class SetupFlowState extends State<SetupFlow> {
                               });
                               navigatorKey.currentState!
                                   .pushNamedAndRemoveUntil(
-                                      servicesPageRoute, (route) => false);
+                                  servicesPageRoute, (route) => false);
                               Navigator.of(context).pop();
                             },
                             child: const Image(
@@ -223,7 +220,7 @@ class SetupFlowState extends State<SetupFlow> {
                   ElevatedButton(
                     style: const ButtonStyle(
                         backgroundColor:
-                            MaterialStatePropertyAll<Color>(Colors.purple)),
+                        MaterialStatePropertyAll<Color>(Colors.purple)),
                     onPressed: () {},
                     child: FutureBuilder<PackageInfo>(
                       future: PackageInfo.fromPlatform(),
