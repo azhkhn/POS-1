@@ -14,7 +14,7 @@ class ButtonAttendence extends StatelessWidget {
     child: Column(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: const [
-        Image(image: AssetImage('assets/attendance_drawer.png')),
+        Image(image: AssetImage('assets/attendance_drawer.png'),height: 85),
         Text('Attendance',style: TextStyle(color: Colors.white,fontSize: 20.0))
       ],
     ),

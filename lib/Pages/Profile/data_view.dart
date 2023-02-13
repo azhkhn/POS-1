@@ -215,7 +215,7 @@ class DataView extends StatelessWidget {
                                 child: Column(
                                   children: const [
                                     Image(
-                                        image: AssetImage('assets/attendance_blank.png')),
+                                        image: AssetImage('assets/attendance_blank.png'),height: 85),
                                     Text('Attendance',style: TextStyle(color: Colors.white,fontSize: 20.0),)
                                   ],
                                 )),
@@ -235,7 +235,7 @@ class DataView extends StatelessWidget {
                                 child: Column(
                                   children: const [
                                     Image(
-                                        image: AssetImage('assets/visit.png')),
+                                        image: AssetImage('assets/visit.png'),height: 85),
                                     Text('Visit',style: TextStyle(color: Colors.white,fontSize: 20.0))
                                   ],
                                 )),

@@ -12,7 +12,7 @@ class StoreVisit extends StatelessWidget {
       )),
       child: Column(
         children: const [
-          Image(image: AssetImage('assets/visit_drawer.png')),
+          Image(image: AssetImage('assets/visit_drawer.png'),height: 85),
           Text('Store Visit',style: TextStyle(color: Colors.white,fontSize: 20.0))
         ],
       ),

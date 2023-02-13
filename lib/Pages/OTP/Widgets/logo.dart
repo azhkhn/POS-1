@@ -10,7 +10,7 @@ class AppLogo extends StatelessWidget {
                       Theme.of(context).scaffoldBackgroundColor,
                       BlendMode.modulate),
                   child: Image.asset(
-                    "assets/multiplier.png",
+                    "assets/daikin_splash.png",
                     width: 200,
                     height: 200,
                   ),

@@ -9,7 +9,7 @@ class SplashImage extends StatelessWidget {
       width: double.infinity,
       height: double.infinity,
       child: Image.asset(
-        "assets/multiplier.png",
+        "assets/daikin_splash.png",
         fit: BoxFit.fill,
       ),
     );

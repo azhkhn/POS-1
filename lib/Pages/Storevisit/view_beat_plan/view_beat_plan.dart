@@ -3,14 +3,14 @@
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 
-import '../../Constants/global.dart';
-import '../../Constants/style.dart';
-import '../../Routing/named_routes.dart';
-import '../../Widgets/BottomBar/Components/button_attendence.dart';
-import '../../Widgets/BottomBar/Components/button_logout.dart';
-import '../../Widgets/BottomBar/Components/store_visit.dart';
-import '../../Widgets/buidnavbar.dart';
-import '../../Widgets/recycler_view.dart';
+import '../../../Constants/global.dart';
+import '../../../Constants/style.dart';
+import '../../../Routing/named_routes.dart';
+import '../../../Widgets/BottomBar/Components/button_attendence.dart';
+import '../../../Widgets/BottomBar/Components/button_logout.dart';
+import '../../../Widgets/BottomBar/Components/store_visit.dart';
+import '../../../Widgets/buidnavbar.dart';
+import '../../../Widgets/recycler_view.dart';
 
 class BeatPlan extends StatefulWidget {
   const BeatPlan({Key? key}) : super(key: key);

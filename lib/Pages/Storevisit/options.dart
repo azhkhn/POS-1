@@ -1,8 +1,9 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:pos/Pages/Storevisit/outlet_beat_plan/outleat_beat_plan.dart';
 
-import 'beat_plan.dart';
+import 'view_beat_plan/view_beat_plan.dart';
 
 class Options extends StatefulWidget {
   const Options({Key? key}) : super(key: key);
@@ -27,7 +28,10 @@ class _OptionsState extends State<Options> {
                 height: 250.0,
                 color: Colors.black,
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => const OutletBeatPlan()));
+                  },
                   child: Column(
                     children: [
                       const Image(

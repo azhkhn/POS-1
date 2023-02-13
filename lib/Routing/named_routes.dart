@@ -38,4 +38,5 @@ const routeDeviceSetupStart = '/setup/$routeDeviceSetupprofilePageRoute';
 const routeDeviceSetupprofilePageRoute = "/profile/";
 const routeDeviceSetupreportPageRoute = "/report/";
 const routeDeviceSetupservicesPageRoute = "/services/";
+const routeDeviceSetupattendancePageRoute = "/attendance/";
 

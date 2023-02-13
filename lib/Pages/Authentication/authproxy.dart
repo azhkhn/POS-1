@@ -9,7 +9,7 @@ class AuthProxy extends StatelessWidget {
     return Container(
             decoration: const BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage("assets/multiplier.png"),
+                  image: AssetImage("assets/daikin_splash.png"),
                   fit: BoxFit.fill),
             ),
             child: const AuthenticationPage(reset: false,));
