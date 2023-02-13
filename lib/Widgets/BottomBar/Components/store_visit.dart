@@ -10,7 +10,12 @@ class StoreVisit extends StatelessWidget {
       onPressed: () => Navigator.of(context).push(MaterialPageRoute(
         builder: (context) => const StoreVisitData(),
       )),
-      child: const Image(image: AssetImage('assets/multiplier.png')),
+      child: Column(
+        children: const [
+          Image(image: AssetImage('assets/visit_drawer.png')),
+          Text('Store Visit',style: TextStyle(color: Colors.white,fontSize: 20.0))
+        ],
+      ),
     );
   }
 }

@@ -28,7 +28,7 @@ class EveningImage extends StatelessWidget {
         const Text(
           "Out",
           style: TextStyle(
-              fontSize: 15, fontWeight: FontWeight.bold, color: Colors.purple),
+              fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ],
     );

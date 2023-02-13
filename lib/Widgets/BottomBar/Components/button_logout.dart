@@ -10,7 +10,12 @@ class ButtonLogout extends StatelessWidget {
     return TextButton(
     onPressed: () => showDialog(
         context: context, builder: (context) => isExitDesired(context)),
-    child: const Image(image: AssetImage('assets/multiplier.png')),
+    child: Column(
+      children: const [
+        Image(image: AssetImage('assets/logout_drawer.png')),
+        Text('Logout',style: TextStyle(color: Colors.white,fontSize: 20.0))
+      ],
+    ),
   );
   }
 }

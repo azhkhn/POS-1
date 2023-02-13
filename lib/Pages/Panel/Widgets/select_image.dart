@@ -92,7 +92,7 @@ class _SelectImageState extends State<SelectImage> {
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.purple),
+                                color: Colors.black),
                           ),
                           const SizedBox(
                             height: 5,
@@ -122,7 +122,7 @@ class _SelectImageState extends State<SelectImage> {
                             style: TextStyle(
                                 fontSize: 15,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.purple),
+                                color: Colors.black),
                           ),
                           const SizedBox(
                             height: 5,

@@ -198,7 +198,7 @@ class _RecyclerViewDataState extends State<RecyclerViewData> {
           }
           return const Center(
             child: CircularProgressIndicator(
-              color: Colors.purple,
+              color: Colors.black,
             ),
           );
         },
@@ -221,7 +221,7 @@ Future<List<Job>> _fetchJobs() async {
 
 ListTile _tile(String title, String subtitle, IconData icon) => ListTile(
       title: Container(
-        color: Colors.purple,
+        color: Colors.black,
         child: Column(
           children: [
             Icon(

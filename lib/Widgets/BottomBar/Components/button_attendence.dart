@@ -11,7 +11,13 @@ class ButtonAttendence extends StatelessWidget {
     onPressed: () => Navigator.of(context).push(MaterialPageRoute(
       builder: (context) => const AttendencePage(),
     )),
-    child: const Image(image: AssetImage('assets/multiplier.png')),
+    child: Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: const [
+        Image(image: AssetImage('assets/attendance_drawer.png')),
+        Text('Attendance',style: TextStyle(color: Colors.white,fontSize: 20.0))
+      ],
+    ),
   );
   }
 }

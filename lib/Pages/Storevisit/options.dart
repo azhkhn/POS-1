@@ -22,29 +22,45 @@ class _OptionsState extends State<Options> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Card(
-                elevation: 6.0,
+              Container(
+                padding: EdgeInsets.all(20.0),
+                height: 250.0,
+                color: Colors.black,
                 child: TextButton(
                   onPressed: () {},
-                  child: const Image(
-                    image: AssetImage('assets/multiplier.png'),
+                  child: Column(
+                    children: [
+                      const Image(
+                        image: AssetImage('assets/beat_plan_by_outlet.png'),height: 150,
+                      ),
+                      SizedBox(height: 20.0),
+                      Text('Beat Plan By Outlet',style: TextStyle(color: Colors.white,fontSize: 20.0))
+                    ],
                   ),
                 ),
               ),
-              const SizedBox(height: 25.0),
-              Card(
-                elevation: 6.0,
+              const SizedBox(height: 20.0),
+              Container(
+                padding: EdgeInsets.all(20.0),
+                color: Colors.black,
+                height: 250.0,
+                width: 255.0,
                 child: TextButton(
                   onPressed: () {
                     Navigator.of(context).push(MaterialPageRoute(
                         builder: (context) => const BeatPlan()));
                   },
-                  child: const Image(
-                    image: AssetImage('assets/multiplier.png'),
+                  child: Column(
+                    children: [
+                      const Image(
+                        image: AssetImage('assets/view_plan.png'),
+                      ),
+                      Text('View Beat Plan',style: TextStyle(color: Colors.white,fontSize: 20.0))
+                    ],
                   ),
                 ),
               ),
-              const SizedBox(height: 65.0),
+              const SizedBox(height: 15.0),
               SizedBox(
                 child: Card(
                   color: Colors.white,

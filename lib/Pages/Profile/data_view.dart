@@ -206,14 +206,19 @@ class DataView extends StatelessWidget {
                     Expanded(
                         child: Card(
                           margin: const EdgeInsets.all(0),
-                          color: Colors.white,
+                          color: Colors.black,
                           elevation: 6,
                           child: TextButton(
                             onPressed: () {},
                             child: Container(
                                 padding: EdgeInsets.zero,
-                                child: const Image(
-                                    image: AssetImage('assets/multiplier.png'))),
+                                child: Column(
+                                  children: const [
+                                    Image(
+                                        image: AssetImage('assets/attendance_blank.png')),
+                                    Text('Attendance',style: TextStyle(color: Colors.white,fontSize: 20.0),)
+                                  ],
+                                )),
                           ),
                         ),
                     ),
@@ -221,14 +226,19 @@ class DataView extends StatelessWidget {
                     Expanded(
                         child: Card(
                           margin: const EdgeInsets.all(0),
-                          color: Colors.white,
+                          color: Colors.black,
                           elevation: 6,
                           child: TextButton(
                             onPressed: () {},
                             child: Container(
                                 padding: EdgeInsets.zero,
-                                child: const Image(
-                                    image: AssetImage('assets/multiplier.png'))),
+                                child: Column(
+                                  children: const [
+                                    Image(
+                                        image: AssetImage('assets/visit.png')),
+                                    Text('Visit',style: TextStyle(color: Colors.white,fontSize: 20.0))
+                                  ],
+                                )),
                           ),
                         ),
                     ),

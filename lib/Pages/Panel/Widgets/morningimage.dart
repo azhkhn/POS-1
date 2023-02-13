@@ -27,7 +27,7 @@ class MorningImage extends StatelessWidget {
         const Text(
           "In",
           style: TextStyle(
-              fontSize: 15, fontWeight: FontWeight.bold, color: Colors.purple),
+              fontSize: 15, fontWeight: FontWeight.bold, color: Colors.black),
         ),
       ],
     );
