@@ -25,10 +25,16 @@ class _OutLetBeatPlanNavBarState extends State<OutLetBeatPlanNavBar> {
                   child: TextButton(
                       onPressed: () {},
                       child: const TextField(
+                        cursorColor: Colors.black,
+                        style: TextStyle(color: Colors.white),
                         keyboardType: TextInputType.number,
                         decoration: InputDecoration(
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.black)
+                          ),
                             hintText: "dd/mm/yyyy",
-                            hintStyle: TextStyle(color: Colors.white)),
+                            hintStyle: TextStyle(color: Colors.white)
+                        ),
                       ))),
               label: ""),
           BottomNavigationBarItem(

@@ -33,7 +33,7 @@ class _OutletBeatPlanState extends State<OutletBeatPlan> {
       ),
       drawer: const BuildNavBar(),
       body: const OutLetRecyclerView(),
-      bottomNavigationBar: const OutLetBeatPlanNavBar(),
+      bottomSheet: const OutLetBeatPlanNavBar(),
     );
   }
 }
