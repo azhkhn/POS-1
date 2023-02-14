@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pos/Widgets/outlet_recyclerview.dart';
+import 'package:pos/Widgets/outlet_beat_plan_navbar.dart';
 import '../../../Constants/global.dart';
 import '../../../Widgets/buidnavbar.dart';
+import '../../../Widgets/outlet_recyclerview.dart';
 
 class OutletBeatPlan extends StatefulWidget {
   const OutletBeatPlan({Key? key}) : super(key: key);
@@ -11,6 +12,7 @@ class OutletBeatPlan extends StatefulWidget {
 }
 
 class _OutletBeatPlanState extends State<OutletBeatPlan> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,6 +33,7 @@ class _OutletBeatPlanState extends State<OutletBeatPlan> {
       ),
       drawer: const BuildNavBar(),
       body: const OutLetRecyclerView(),
+      bottomNavigationBar: const OutLetBeatPlanNavBar(),
     );
   }
 }

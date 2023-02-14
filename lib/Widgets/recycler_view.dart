@@ -131,7 +131,7 @@ class _RecyclerViewDataState extends State<RecyclerViewData> {
                                                           padding:
                                                               const EdgeInsets
                                                                       .only(
-                                                                  right: 50.0),
+                                                                  right: 20.0),
                                                           child: ElevatedButton(
                                                               style: const ButtonStyle(
                                                                   backgroundColor:
@@ -139,7 +139,8 @@ class _RecyclerViewDataState extends State<RecyclerViewData> {
                                                                               Color>(
                                                                           Colors
                                                                               .black)),
-                                                              onPressed: () {},
+                                                              onPressed: () {
+                                                              },
                                                               child: const Text(
                                                                   'Visit')),
                                                         ),
