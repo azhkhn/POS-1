@@ -3,8 +3,6 @@ import 'package:pos/Pages/Storevisit/options.dart';
 import '../../Constants/global.dart';
 import '../../Routing/named_routes.dart';
 import '../../Widgets/buidnavbar.dart';
-import '../../Widgets/custom_waiting_screen.dart';
-import '../../helpers/location_setter.dart';
 
 class StoreVisitData extends StatefulWidget {
   const StoreVisitData({Key? key}) : super(key: key);
@@ -24,7 +22,7 @@ class _StoreVisitDataState extends State<StoreVisitData> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white70,
+        backgroundColor: Colors.white70,
         appBar: AppBar(
           backgroundColor: Colors.black,
           centerTitle: true,
@@ -42,8 +40,6 @@ class _StoreVisitDataState extends State<StoreVisitData> {
           title: const Text("Manage Beat Plan"),
         ),
         drawer: const BuildNavBar(),
-        body: StateInherited.of(context).locationData != null
-            ? const Center(child: Options())
-            : customcontainer());
+        body: const Center(child: Options()));
   }
 }

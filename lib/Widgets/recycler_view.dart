@@ -2,6 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:pos/Widgets/small_map.dart';
+import '../Pages/Attendence/scoped.dart';
 import '../model/DatabaseModels/beat_plain_data.dart';
 
 class RecyclerViewData extends StatefulWidget {
@@ -140,6 +142,9 @@ class _RecyclerViewDataState extends State<RecyclerViewData> {
                                                                           Colors
                                                                               .black)),
                                                               onPressed: () {
+                                                                Navigator.of(context).push(
+                                                                    MaterialPageRoute(
+                                                                    builder: (context) => SmallMap(destlocation: loc)));
                                                               },
                                                               child: const Text(
                                                                   'Visit')),
